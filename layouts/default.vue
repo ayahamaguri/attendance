@@ -16,7 +16,7 @@
           exact
         >
           <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon>{{ item ? item.icon : item.open }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title v-text="item.title" />
@@ -84,7 +84,8 @@ export default defineComponent({
     const title = ref('title')
     const items = ref([
       {
-        icon: 'mdi-apps',
+        icon: 'mdi-book-open-blank-variant',
+        open: 'mdi-book-open-page-variant',
         title: '出席簿',
         to: '/',
       },
@@ -92,6 +93,16 @@ export default defineComponent({
         icon: 'mdi-chart-bubble',
         title: 'Inspire',
         to: '/inspire',
+      },
+      {
+        icon: 'mdi-apps',
+        title: 'ログイン',
+        to: '/login',
+      },
+      {
+        icon: 'mdi-apps',
+        title: '動画',
+        to: '/remotelesson',
       },
     ])
     const darkMord = ref()
